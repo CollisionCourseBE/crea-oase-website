@@ -1,0 +1,10 @@
+/**
+ * This is an main theme file for the WP frontend.
+ * This file contains the adjustments made towards to frontend (custom) modules.
+*/
+
+@use 'base/_variables' as vars;
+@use 'base/_fonts' as fonts;
+@use 'base/_mixins' as mixins;
+@use 'app/_gutenberg'; // Gutenberg stylesheet (custom)
+

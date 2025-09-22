@@ -1,0 +1,28 @@
+/**
+ * This is an admin theme file for the WP backend.
+ * This file contains the adjustments made towards to backend (custom) modules.
+*/
+
+@use 'base/_variables' as vars;
+@use 'base/_fonts' as fonts;
+
+.theme-error-acf {
+    display: block;
+    position: fixed;
+    margin: 0;
+    padding: 10px;
+    width: 100%;
+    bottom: 0;
+    height: auto;
+    background-color: #e4a92a;
+    color: #000000;
+    text-align: center;
+    z-index: 999999;
+
+    p {
+        font-family: inherit;
+        font-size: .8rem;
+        font-weight: 500;
+        letter-spacing: 2px;
+    }
+}

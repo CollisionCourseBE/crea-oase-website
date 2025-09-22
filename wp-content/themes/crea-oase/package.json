@@ -1,0 +1,36 @@
+{
+    "name": "crea-oase",
+    "version": "1.2.0",
+    "description": "Custom WordPress theme for Crea-Oase, build with sample set and Gutenberg elements manager.",
+    "scripts": {
+      "sass-dev": "sass --watch --update --style=expanded styles/sass:styles/css",
+      "sass-prod": "sass --no-source-map --style=compressed styles/sass:styles/css",
+      "js-dev": "chokidar 'scripts/main.js' -c 'npm run js-prod'",
+      "js-prod": "uglifyjs scripts/main.js --compress --mangle --output scripts/main.min.js",
+      "watch": "concurrently \"npm run sass-dev\" \"npm run js-dev\"",
+      "build": "npm run sass-prod && npm run js-prod"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/CollisionCourseBE/crea-oase-website.git"
+    },
+    "keywords": [
+      "crea",
+      "oase",
+      "wordpress",
+      "theme"
+    ],
+    "author": "CollisionCourse - DWCj",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/CollisionCourseBE/crea-oase-website/issues"
+    },
+    "homepage": "https://github.com/CollisionCourseBE/crea-oase-website#readme",
+    "devDependencies": {
+      "chokidar-cli": "^3.0.0",
+      "concurrently": "^8.2.2",
+      "sass": "^1.75.0",
+      "uglify-js": "^3.18.0"
+    }
+  }
+  

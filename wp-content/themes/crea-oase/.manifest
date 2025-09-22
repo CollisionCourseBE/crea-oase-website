@@ -1,0 +1,10 @@
+{
+  "short_name": "Crea-Oase",
+  "name": "Crea-Oase",
+  "description": "Crea-Oase | Sfeervolle, natuurlijke tuinconcepten.",
+  "start_url": "/?source=pwa",
+  "background_color": "#FFFFFF",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#497B26"
+}
