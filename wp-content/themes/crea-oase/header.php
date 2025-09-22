@@ -24,7 +24,11 @@
     <!-- WP header -->
     <?php wp_head(); ?>
     <!-- Vendor -->
-   
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri().'/styles/vendor/bootstrap/bootstrap.min.css'; ?>">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri().'/styles/vendor/owlcarousel/owl.carousel.min.css'; ?>">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri().'/styles/vendor/owlcarousel/owl.theme.default.min.css'; ?>">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri().'/styles/vendor/swiper/swiper-bundle.min.css'; ?>"/>
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri().'/assets/fonts/fontawesome/css/all.min.css'; ?>">
     <!-- Style -->
     <link rel="stylesheet" href="<?php echo get_template_directory_uri().'/styles/css/main.css'; ?>">
     <!-- Title -->

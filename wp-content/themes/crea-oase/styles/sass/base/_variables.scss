@@ -1,0 +1,24 @@
+// Theme colors
+$color-primary: #497B26;
+$color-backgroud: #E6F4DC;
+$color-text: #000000;
+$color-white: #ffffff;
+$color-link: #a96827;
+$color-accent: #e4f7d2;
+
+// Tables
+$table-border-radius: 12px;
+$table-padding: 0.75rem;
+$table-header-bg: $color-primary;
+$table-header-color: $color-white;
+$table-row-hover: $color-accent;
+
+// Border
+$border-primary: 1px solid $color-primary;
+$border-accen: 1px solid $color-accent;
+
+// Alerts
+$color-alert-error: #D27C6A;
+$color-alert-warning: #F9B464;
+$color-alert-info: #85A6A6;
+$color-alert-success: #00C896;

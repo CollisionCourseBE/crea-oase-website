@@ -1,0 +1,33 @@
+/**
+ * Google fonts intgration by stylesheet.
+ * Replacing the inline HTML.
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Delius&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+$font-primary: "Roboto", sans-serif;
+$font-secondary: "Delius", cursive;
+$font-awesome: "Font Awesome 5";
+
+$font-weight-regular: 400;
+$font-weight-semi-bold: 500;
+$font-weight-bold: 700;
+$font-weight-heading: 400;
+
+$font-body-1: 18px;
+$font-body-2: 16px;
+$font-body-3: 14px;
+$font-body-4: 12px;
+
+$line-height-heading: 1.5;
+$line-height-paragraph: 1.2;
+
+$h1: 80px;
+$h2: 64px;
+$h3: 48px;
+$h4: 32px;
+$h5: 24px;
+$h6: 20px;
+
+$transition: all 0.3s ease-in-out;

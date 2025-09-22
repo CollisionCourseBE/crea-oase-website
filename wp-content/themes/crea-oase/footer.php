@@ -17,6 +17,12 @@
     <!-- WP Footer -->
     <?php wp_footer(); ?>
     <!-- Scripts -->
-     
+    <script src="<?php echo get_template_directory_uri().'/scripts/vendor/jquery/jquery-3.7.1.min.js'; ?>"></script>
+    <script src="<?php echo get_template_directory_uri().'/scripts/vendor/modernizr/modernizr.min.js'; ?>"></script>
+    <script src="<?php echo get_template_directory_uri().'/scripts/vendor/bootstrap/bootstrap.bundle.min.js'; ?>"></script>
+    <script src="<?php echo get_template_directory_uri().'/scripts/vendor/owlcarousel/owl.carousel.min.js'; ?>"></script>
+    <script src="<?php echo get_template_directory_uri().'/scripts/vendor/swiper/swiper-bundle.min.js'; ?>"></script>
+    <!-- Site Scripts -->
+    <script src="<?php echo get_template_directory_uri().'/scripts/main.min.js'; ?>"></script>
 </body>
 </html>
