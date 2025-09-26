@@ -14,6 +14,12 @@
  * It ensures that the site maintains a consistent look and feel across all pages.
  */
 ?>
+        </main>
+
+        <footer>
+            
+        </footer>
+    </div>
     <!-- WP Footer -->
     <?php wp_footer(); ?>
     <!-- Scripts -->

@@ -124,6 +124,12 @@ ol.list-style li::marker {
     }
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
 /**
  * Root Styles
 */
@@ -136,6 +142,7 @@ body {
     font-variation-settings: "wdth" 100;
     line-height: fonts.$line-height-paragraph;
     color: vars.$color-text;
+    background-color: vars.$color-accent;
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -178,9 +185,226 @@ p {
 }
 
 /**
- * Swiper
+ * Mobile navigation 
 */
-.swiper {
-    width: 600px;
-    height: 300px;
+.main-nav-mobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(225, 225, 225, 0.95);
+    z-index: 999999; /* higher than your fixed header */
+    overflow-y: auto;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Show overlay when active */
+.main-nav-mobile.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Ensure header inside overlay is properly spaced */
+.main-nav-mobile .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+/* Logo */
+.main-nav-mobile .logo img {
+    max-height: 50px;
+}
+
+/* Close button */
+.main-nav-mobile .actions button.mobile-menu-close {
+    background: none;
+    border: none;
+    color: vars.$color-text;
+    font-size: fonts.$h4-max;
+}
+
+/* Mobile Menu Navigation */
+.mainmenu-nav-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 80px; /* space below the header inside overlay */
+    text-align: center;
+}
+
+.mainmenu-nav-mobile ul.mainmenu-nav-wp {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mainmenu-nav-mobile ul.mainmenu-nav-wp li {
+    margin: 15px 0;
+    position: relative;
+}
+
+.mainmenu-nav-mobile ul.mainmenu-nav-wp li a {
+    color: vars.$color-text;
+    font-size: fonts.$h4-max;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.mainmenu-nav-mobile ul.mainmenu-nav-wp li a:hover {
+    color: vars.$color-primary;
+}
+
+.mainmenu-nav-mobile ul.mainmenu-nav-wp li.menu-item-has-children > a:after {
+    content: "\f054";
+    font-family: fonts.$font-awesome;
+    font-weight: 900;
+    font-size: fonts.$h6-max;
+    padding: 0 0 0 15px;
+}
+
+.mainmenu-nav-mobile ul.mainmenu-nav-wp li.menu-item-has-children.open > a:after {
+    content: "\f078";
+    font-family: fonts.$font-awesome;
+    font-weight: 900;
+    font-size: fonts.$h6-max;
+    padding: 0 0 0 15px;
+}
+
+/* Submenu items - indented */
+.mainmenu-nav-mobile ul.mainmenu-nav-wp li ul {
+    display: none;
+    flex-direction: column;
+    margin-top: 5px;
+    padding: 15px; /* indent for submenu */
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: vars.$border-radius;
+}
+
+/* Show submenu when parent has 'open' class */
+.mainmenu-nav-mobile ul.mainmenu-nav-wp li.open > ul {
+    display: block;
+}
+
+.mainmenu-nav-mobile ul.mainmenu-nav-wp li ul li {
+    margin: 5px 0;
+    text-align: left;
+}
+
+.mainmenu-nav-mobile ul.mainmenu-nav-wp li ul li a {
+    font-size: fonts.$h5-max;
+}
+
+/**
+ * Header
+*/
+header {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    background-color: vars.$color-primary;
+    z-index: 9999; // keep it above other elements
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+    img {
+        max-height: 54px;
+    }
+
+    .header-main-nav {
+        padding-left: 30px;
+    }
+
+    .mainmenu-nav {
+        display: none;
+
+        @media (min-width: 992px) {
+            display: block;
+        }
+
+        ul.mainmenu-nav-wp {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 30px; // space between main menu items
+
+            li {
+                position: relative;
+
+                a {
+                    color: vars.$color-white;
+                    text-decoration: none;
+                    padding: 5px 10px;
+                    transition: color 0.3s;
+
+                    &:hover {
+                        color: #f0f0f0; // slightly lighter on hover
+                    }
+                }
+
+                /* Submenu */
+                ul {
+                    display: none; // hide by default
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    background-color: vars.$color-white;
+                    list-style: none;
+                    padding: 10px 0;
+                    min-width: 180px;
+                    z-index: 1000;
+
+                    li {
+                        display: block;
+
+                        a {
+                            display: block;
+                            padding: 8px 15px;
+                            white-space: nowrap;
+                            color: vars.$color-primary;
+
+                            &:hover {
+                                color: vars.$color-text;
+                            }
+                        }
+                    }
+                }
+
+                /* Show submenu on hover */
+                &:hover > ul {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    .actions {
+        display: block;
+
+        @media (min-width: 992px) {
+            display: none;
+        }
+
+        button {
+            background: none;
+            border: none;
+            color: vars.$color-white;
+            font-size: 1.8rem;
+        }
+    }
+}
+
+/**
+ * Main
+*/
+main.main-content {
+    margin-top: 100px;
 }

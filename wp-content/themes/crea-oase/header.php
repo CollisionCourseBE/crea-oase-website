@@ -44,3 +44,76 @@
     ?>
 </head>
 <body <?php body_class(); ?> id="<?php echo 'id-' . get_the_id(); ?>">
+    <!--[if lte IE 9]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+    <![endif]-->
+
+    <div class="main-nav-mobile" id="MobileNav">
+        <div class="container-fluid main-nav">
+            <!-- Mobile Header -->
+            <div class="header d-flex align-items-center justify-content-between py-3">
+                <div class="logo">
+                    <a href="<?php echo home_url(); ?>">
+                        <img class="logo" src="<?php echo get_template_directory_uri().'/assets/logo/logo-crea-oase-ori.png'; ?>" alt="<?php echo __( 'Crea-oase logo in green', 'txtd-crea-oase' ); ?>">
+                    </a>
+                </div>
+                <div class="actions">
+                    <button class="mobile-menu-close" id="MobileNavClose">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Navigation -->
+            <nav class="mainmenu-nav-mobile">
+                <?php
+                wp_nav_menu(array(
+                    'theme_location' => 'nav-main',
+                    'container' => false,
+                    'menu_class' => 'mainmenu-nav-wp',
+                    'depth' => 2
+                ));
+                ?>
+            </nav>
+        </div>
+    </div>
+
+    <div id="main-wrapper" class="main-wrapper">
+        <header class="header">
+            <div class="container-fluid">
+                <div class="d-flex align-items-center justify-content-between justify-content-lg-start">
+                    <!-- Logo -->
+                    <div class="header-logo">
+                        <a href="<?php echo home_url(); ?>">
+                            <img class="logo-white" src="<?php echo get_template_directory_uri().'/assets/logo/logo-crea-oase-white.png'; ?>" alt="<?php echo __( 'Crea-Oase logo in white', 'txtd-crea-oase' ); ?>">
+                        </a>
+                    </div>
+
+                    <!-- Menu -->
+                    <div class="header-main-nav">
+                        <nav class="mainmenu-nav">
+                            <?php
+                            wp_nav_menu(array(
+                                'theme_location' => 'nav-main',
+                                'container' => false,
+                                'menu_class' => 'mainmenu-nav-wp d-flex gap-3', // added gap for spacing
+                                'depth' => 2
+                            ));
+                            ?>
+                        </nav>
+
+                        <div class="actions">
+                            <button class="mobile-menu-open" id="MobileNavOpen">
+                                <i class="fa-solid fa-bars"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content" id="mainContent">
+            
+        
+        
+        

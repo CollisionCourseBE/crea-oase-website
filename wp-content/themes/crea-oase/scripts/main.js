@@ -45,4 +45,34 @@ document.addEventListener('DOMContentLoaded', function () {
     console.warn('Owl Carousel not found or jQuery is missing.');
   }
 
+  // === Mobile Menu ===
+  const mobileNav = document.getElementById("MobileNav");
+  const openBtn = document.getElementById("MobileNavOpen");
+  const closeBtn = document.getElementById("MobileNavClose");
+
+  if (openBtn && mobileNav) {
+    openBtn.addEventListener("click", function () {
+      mobileNav.classList.add("active");
+    });
+  }
+
+  if (closeBtn && mobileNav) {
+    closeBtn.addEventListener("click", function () {
+      mobileNav.classList.remove("active");
+    });
+  }
+
+  // === Submenu Toggle ===
+  const submenuParents = document.querySelectorAll(
+    ".mainmenu-nav-mobile ul.mainmenu-nav-wp li:has(ul)"
+  );
+
+  submenuParents.forEach((item) => {
+    const link = item.querySelector("a");
+
+    link.addEventListener("click", function (e) {
+      e.preventDefault(); // prevent following the link
+      item.classList.toggle("open"); // toggle submenu visibility
+    });
+  });
 });
