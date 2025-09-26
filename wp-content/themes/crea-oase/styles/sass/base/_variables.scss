@@ -1,6 +1,6 @@
 // Theme colors
 $color-primary: #497B26;
-$color-backgroud: #E6F4DC;
+$color-background: #E6F4DC;
 $color-text: #000000;
 $color-white: #ffffff;
 $color-link: #a96827;
@@ -22,3 +22,55 @@ $color-alert-error: #D27C6A;
 $color-alert-warning: #F9B464;
 $color-alert-info: #85A6A6;
 $color-alert-success: #00C896;
+
+// Text Color Classes
+.text-primary      { color: $color-primary; }
+.text-background   { color: $color-background; }
+.text-text         { color: $color-text; }
+.text-white        { color: $color-white; }
+.text-link         { color: $color-link; }
+.text-accent       { color: $color-accent; }
+
+.text-alert-error   { color: $color-alert-error; }
+.text-alert-warning { color: $color-alert-warning; }
+.text-alert-info    { color: $color-alert-info; }
+.text-alert-success { color: $color-alert-success; }
+
+// Gutenberg style text color classes
+.has-primary-color      { color: $color-primary; }
+.has-background-color   { color: $color-background; }
+.has-text-color         { color: $color-text; }
+.has-white-color        { color: $color-white; }
+.has-link-color         { color: $color-link; }
+.has-accent-color       { color: $color-accent; }
+
+.has-alert-error-color   { color: $color-alert-error; }
+.has-alert-warning-color { color: $color-alert-warning; }
+.has-alert-info-color    { color: $color-alert-info; }
+.has-alert-success-color { color: $color-alert-success; }
+
+// Background Color Classes
+.bg-primary      { background-color: $color-primary; }
+.bg-background   { background-color: $color-background; }
+.bg-text         { background-color: $color-text; }
+.bg-white        { background-color: $color-white; }
+.bg-link         { background-color: $color-link; }
+.bg-accent       { background-color: $color-accent; }
+
+.bg-alert-error   { background-color: $color-alert-error; }
+.bg-alert-warning { background-color: $color-alert-warning; }
+.bg-alert-info    { background-color: $color-alert-info; }
+.bg-alert-success { background-color: $color-alert-success; }
+
+// Gutenberg style background color classes
+.has-primary-background-color      { background-color: $color-primary; }
+.has-background-background-color   { background-color: $color-background; }
+.has-text-background-color         { background-color: $color-text; }
+.has-white-background-color        { background-color: $color-white; }
+.has-link-background-color         { background-color: $color-link; }
+.has-accent-background-color       { background-color: $color-accent; }
+
+.has-alert-error-background-color   { background-color: $color-alert-error; }
+.has-alert-warning-background-color { background-color: $color-alert-warning; }
+.has-alert-info-background-color    { background-color: $color-alert-info; }
+.has-alert-success-background-color { background-color: $color-alert-success; }

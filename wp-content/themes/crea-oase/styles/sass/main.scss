@@ -9,22 +9,177 @@
 @use 'base/_mixins' as mixins;
 @use 'app/_gutenberg'; // Gutenberg stylesheet (custom)
 
-// Root
+/**
+ * Create an extra reset, for bootstrap
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+    display: inline-block;
+    text-decoration: none;
+        -webkit-transition: fonts.$transition;
+    transition: fonts.$transition;
+    color: vars.$color-link;
+}
+
+span {
+    display: inline-block;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+ul.list-style,
+ol.list-style {
+    margin: -10px 0;
+}
+
+ul.list-style li,
+ol.list-style li {
+    margin: 10px 0;
+}
+
+ul.list-style li::marker,
+ol.list-style li::marker {
+    color: vars.$color-primary;
+}
+
+.list-unstyled {
+    padding-left: 0;
+    list-style: none;
+    margin-bottom: 0;
+}
+
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+    .container {
+        max-width: 100%;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
+.row {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.row > [class*=col] {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.row.g-0 {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.row.g-0 > [class*=col] {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+@media only screen and (min-width: 1400px) {
+    .row-35 {
+        margin-left: -35px;
+        margin-right: -35px;
+    }
+
+    .row-35 > [class*=col] {
+        padding-left: 35px;
+        padding-right: 35px;
+    }
+
+    .row-40 {
+        margin-left: -40px;
+        margin-right: -40px;
+    }
+
+    .row-40 > [class*=col] {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    .row-45 {
+        margin-left: -45px;
+        margin-right: -45px;
+    }
+
+    .row-45 > [class*=col] {
+        padding-left: 45px;
+        padding-right: 45px;
+    }
+}
+
+/**
+ * Root Styles
+*/
 body {
     font-family: fonts.$font-primary;
     font-optical-sizing: auto;
     font-weight: fonts.$font-weight-regular;
     font-style: normal;
+    font-size: fonts.$font-body-min;
     font-variation-settings: "wdth" 100;
+    line-height: fonts.$line-height-paragraph;
+    color: vars.$color-text;
 }
 
-h1, h2, .title {
-    font-family: fonts.$font-secondary;
-    font-weight: fonts.$font-weight-heading;
-    font-style: normal;
+h1, h2, h3, h4, h5, h6,
+.title {
+  font-family: fonts.$font-secondary;
+  font-weight: fonts.$font-weight-heading;
+  font-style: normal;
+  line-height: fonts.$line-height-heading;
+  margin: 0 0 0.5em;
 }
 
-// Swiper
+h1 { font-size: fonts.$h1-min; }
+h2 { font-size: fonts.$h2-min; }
+h3 { font-size: fonts.$h3-min; }
+h4 { font-size: fonts.$h4-min; }
+h5 { font-size: fonts.$h5-min; }
+h6 { font-size: fonts.$h6-min; }
+
+p {
+    font-size: fonts.$font-body-min;
+    line-height: fonts.$line-height-paragraph;
+    margin: 0 0 1em;
+}
+
+@media screen and (min-width: 768px) {
+    body {
+        font-size: fonts.$font-body-max;
+    }
+
+    h1 { font-size: fonts.$h1-max; }
+    h2 { font-size: fonts.$h2-max; }
+    h3 { font-size: fonts.$h3-max; }
+    h4 { font-size: fonts.$h4-max; }
+    h5 { font-size: fonts.$h5-max; }
+    h6 { font-size: fonts.$h6-max; }
+
+    p {
+        font-size: fonts.$font-body-max;
+    }
+}
+
+/**
+ * Swiper
+*/
 .swiper {
     width: 600px;
     height: 300px;
