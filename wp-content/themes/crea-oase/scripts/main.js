@@ -9,19 +9,17 @@ document.addEventListener('DOMContentLoaded', function () {
   if (typeof Swiper !== 'undefined') {
     console.log("Swiper loaded."); // Confirmation
 
-    new Swiper('.swiper', {
-      direction: 'vertical',
+    new Swiper(".homeSwiper", {
+      autoplay: {
+        delay: 4000,
+      },
       loop: true,
+      pauseOnMouseEnter: true,
+      effect: 'fade',
       pagination: {
-        el: '.swiper-pagination',
+        el: ".swiper-pagination",
       },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      scrollbar: {
-        el: '.swiper-scrollbar',
-      },
+      grabCursor: true
     });
   } else {
     console.warn('Swiper not found.');

@@ -151,7 +151,7 @@ h1, h2, h3, h4, h5, h6,
   font-weight: fonts.$font-weight-heading;
   font-style: normal;
   line-height: fonts.$line-height-heading;
-  margin: 0 0 0.5em;
+  margin: 0 0 30px;
 }
 
 h1 { font-size: fonts.$h1-min; }
@@ -160,11 +160,20 @@ h3 { font-size: fonts.$h3-min; }
 h4 { font-size: fonts.$h4-min; }
 h5 { font-size: fonts.$h5-min; }
 h6 { font-size: fonts.$h6-min; }
+.subtitle {
+    font-size: fonts.$h5-min;
+    line-height: fonts.$line-height-paragraph;
+    font-family: fonts.$font-primary;
+    font-weight: fonts.$font-weight-semi-bold;
+    font-optical-sizing: auto;
+    font-style: normal;
+    margin: -15px 0 30px; //-15px to go 1/2 of heading
+}
 
 p {
     font-size: fonts.$font-body-min;
     line-height: fonts.$line-height-paragraph;
-    margin: 0 0 1em;
+    margin: 0 0 30px;
 }
 
 @media screen and (min-width: 768px) {
@@ -178,6 +187,8 @@ p {
     h4 { font-size: fonts.$h4-max; }
     h5 { font-size: fonts.$h5-max; }
     h6 { font-size: fonts.$h6-max; }
+
+    .subtitle { font-size: fonts.$h5-max; }
 
     p {
         font-size: fonts.$font-body-max;
@@ -193,111 +204,125 @@ p {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(225, 225, 225, 0.95);
-    z-index: 999999; /* higher than your fixed header */
+    background-color: vars.$color-white-accent;
+    z-index: 999999; // higher than your fixed header
     overflow-y: auto;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px;
+    }
+
+    .logo img {
+        max-height: 50px;
+    }
+
+    .actions {
+        button.mobile-menu-close {
+            background: none;
+            border: none;
+            color: vars.$color-text;
+            font-size: fonts.$h4-max;
+        }
+    }
 }
 
-/* Show overlay when active */
-.main-nav-mobile.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-/* Ensure header inside overlay is properly spaced */
-.main-nav-mobile .header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 15px;
-}
-
-/* Logo */
-.main-nav-mobile .logo img {
-    max-height: 50px;
-}
-
-/* Close button */
-.main-nav-mobile .actions button.mobile-menu-close {
-    background: none;
-    border: none;
-    color: vars.$color-text;
-    font-size: fonts.$h4-max;
-}
-
-/* Mobile Menu Navigation */
 .mainmenu-nav-mobile {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 80px; /* space below the header inside overlay */
+    margin-top: 80px; // space below the header inside overlay
     text-align: center;
-}
 
-.mainmenu-nav-mobile ul.mainmenu-nav-wp {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
+    ul.mainmenu-nav-wp {
+        list-style: none;
+        padding: 0;
+        margin: 0;
 
-.mainmenu-nav-mobile ul.mainmenu-nav-wp li {
-    margin: 15px 0;
-    position: relative;
-}
+        li {
+            margin: 15px 0;
+            position: relative;
 
-.mainmenu-nav-mobile ul.mainmenu-nav-wp li a {
-    color: vars.$color-text;
-    font-size: fonts.$h4-max;
-    text-decoration: none;
-    transition: color 0.3s;
-}
+            a {
+                color: vars.$color-text;
+                font-size: fonts.$h4-max;
+                text-decoration: none;
+                transition: color 0.3s;
 
-.mainmenu-nav-mobile ul.mainmenu-nav-wp li a:hover {
-    color: vars.$color-primary;
-}
+                &:hover {
+                    color: vars.$color-primary;
+                }
+            }
 
-.mainmenu-nav-mobile ul.mainmenu-nav-wp li.menu-item-has-children > a:after {
-    content: "\f054";
-    font-family: fonts.$font-awesome;
-    font-weight: 900;
-    font-size: fonts.$h6-max;
-    padding: 0 0 0 15px;
-}
+            &.menu-item-has-children > a:after {
+                content: "\f054";
+                font-family: fonts.$font-awesome;
+                font-weight: 900;
+                font-size: fonts.$h6-max;
+                padding: 0 0 0 15px;
+            }
 
-.mainmenu-nav-mobile ul.mainmenu-nav-wp li.menu-item-has-children.open > a:after {
-    content: "\f078";
-    font-family: fonts.$font-awesome;
-    font-weight: 900;
-    font-size: fonts.$h6-max;
-    padding: 0 0 0 15px;
-}
+            &.menu-item-has-children.open > a:after {
+                content: "\f078";
+                font-family: fonts.$font-awesome;
+                font-weight: 900;
+                font-size: fonts.$h6-max;
+                padding: 0 0 0 15px;
+            }
 
-/* Submenu items - indented */
-.mainmenu-nav-mobile ul.mainmenu-nav-wp li ul {
-    display: none;
-    flex-direction: column;
-    margin-top: 5px;
-    padding: 15px; /* indent for submenu */
-    background: rgba(0, 0, 0, 0.15);
-    border-radius: vars.$border-radius;
-}
+            &.home_icon {
+                a {
+                    display: inline-block;
+                    width: 42px;
+                    height: 42px;
+                    padding: 21px 0; // height / 2
+                    font-size: 0; // hide text
+                    color: vars.$color-text;
+                    background-color: vars.$color-text;
+                    -webkit-mask: no-repeat center / contain url('../../assets/icons/home.svg');
+                    mask: no-repeat center / contain url('../../assets/icons/home.svg');
 
-/* Show submenu when parent has 'open' class */
-.mainmenu-nav-mobile ul.mainmenu-nav-wp li.open > ul {
-    display: block;
-}
+                    &:hover {
+                        color: vars.$color-primary;
+                        background-color: vars.$color-primary;
+                    }
+                }
+            }
 
-.mainmenu-nav-mobile ul.mainmenu-nav-wp li ul li {
-    margin: 5px 0;
-    text-align: left;
-}
+            ul {
+                display: none;
+                flex-direction: column;
+                margin-top: 5px;
+                padding: 15px; // indent for submenu
+                background: vars.$color-text-accent;
+                border-radius: vars.$border-radius;
 
-.mainmenu-nav-mobile ul.mainmenu-nav-wp li ul li a {
-    font-size: fonts.$h5-max;
+                li {
+                    margin: 5px 0;
+                    text-align: left;
+
+                    a {
+                        font-size: fonts.$h5-max;
+                    }
+                }
+            }
+
+            &.open > ul {
+                display: block;
+            }
+        }
+    }
 }
 
 /**
@@ -312,14 +337,14 @@ header {
     padding: 15px;
     background-color: vars.$color-primary;
     z-index: 9999; // keep it above other elements
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 6px 12px vars.$color-box-shadow;
 
     img {
         max-height: 54px;
     }
 
     .header-main-nav {
-        padding-left: 30px;
+        padding-left: 60px;
     }
 
     .mainmenu-nav {
@@ -334,7 +359,7 @@ header {
             margin: 0;
             padding: 0;
             display: flex;
-            gap: 30px; // space between main menu items
+            gap: 35px; // space between main menu items
 
             li {
                 position: relative;
@@ -346,7 +371,23 @@ header {
                     transition: color 0.3s;
 
                     &:hover {
-                        color: #f0f0f0; // slightly lighter on hover
+                        color: vars.$color-text;
+                    }
+                }
+
+                &.home_icon a {
+                    display: inline-block;
+                    width: 32px;
+                    height: 32px;
+                    padding: 16px 0; // height / 2
+                    font-size: 0; // hide text
+                    color: vars.$color-white;
+                    background-color: vars.$color-white;
+                        -webkit-mask: no-repeat center / contain url('../../assets/icons/home.svg');
+                    mask: no-repeat center / contain url('../../assets/icons/home.svg');
+                    &:hover {
+                        color: vars.$color-text;
+                        background-color: vars.$color-text;
                     }
                 }
 
@@ -406,5 +447,48 @@ header {
  * Main
 */
 main.main-content {
-    margin-top: 100px;
+    position: relative;
+    margin-top: 84px;
+    z-index: 99; // because we want some accents on the background
+}
+
+section {
+    display: block;
+    position: relative;
+    margin: 30px 0;
+    padding: 30px 0;
+}
+
+/**
+ * Front-Page
+*/
+section.hero {
+    .inner-hero {
+        padding: 30px 0 0;
+
+        @media (min-width: 992px) {
+            padding: 60px 0 60px 30px;
+        }
+    }
+
+    .homeSwiper {
+        width: 100%;
+        height: 100%;
+        min-height: 372px;
+        border-radius: vars.$border-radius;
+
+        .swiper-slide {
+            background: #444;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
 }

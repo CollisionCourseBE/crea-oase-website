@@ -5,3 +5,45 @@
 
 @use '../base/_variables' as vars;
 @use '../base/fonts' as fonts;
+
+// Buttons
+.wp-block-buttons {
+    margin: 15px 0;
+}
+
+.wp-block-button {
+    .wp-block-button__link {
+        color: vars.$color-text-dark;
+        border: 2px solid vars.$border-normal;
+        border-radius: calc(vars.$border-radius * 2);
+        box-shadow: none;
+        text-decoration: none;
+        padding: 15px 30px;
+        font-size: fonts.$font-body-min;
+        font-weight: fonts.$font-weight-semi-bold;
+        text-transform: capitalize;
+        background-color: vars.$color-white-accent-light;
+
+        &:hover {
+            background-color: vars.$color-primary;
+            color: vars.$color-white;
+            border-color: vars.$color-primary;
+        }
+
+        @media screen and (min-width: 768px) {
+            font-size: fonts.$font-body-max;
+        }
+    }
+
+    &.focus .wp-block-button__link {
+        background-color: vars.$color-primary;
+        color: vars.$color-white;
+        border-color: vars.$color-primary;
+
+        &:hover {
+            color: vars.$color-text-dark;
+            background-color: vars.$color-white-accent-light;
+            border-color: vars.$border-normal
+        }
+    }
+}
