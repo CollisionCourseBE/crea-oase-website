@@ -23,6 +23,7 @@
         font-weight: fonts.$font-weight-semi-bold;
         text-transform: capitalize;
         background-color: vars.$color-white-accent-light;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, .2);
 
         &:hover {
             background-color: vars.$color-primary;
