@@ -80,7 +80,7 @@
 
     <div id="main-wrapper" class="main-wrapper">
         <header class="header">
-            <div class="container-fluid">
+            <div class="container-fluid container-lg">
                 <div class="d-flex align-items-center justify-content-between justify-content-lg-start">
                     <!-- Logo -->
                     <div class="header-logo">
@@ -113,49 +113,50 @@
         </header>
 
         <main class="main-content" id="mainContent">
-            <section class="hero">
-                <div class="container-fluid container-lg">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="swiper homeSwiper">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide">Slide 1</div>
-                                    <div class="swiper-slide">Slide 2</div>
-                                    <div class="swiper-slide">Slide 3</div>
-                                    <div class="swiper-slide">Slide 4</div>
-                                    <div class="swiper-slide">Slide 5</div>
-                                    <div class="swiper-slide">Slide 6</div>
-                                    <div class="swiper-slide">Slide 7</div>
-                                    <div class="swiper-slide">Slide 8</div>
-                                    <div class="swiper-slide">Slide 9</div>
-                                </div>
-                                <div class="swiper-pagination"></div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="inner-hero">
-                                <h1 class="title hero-title">Crea-Oase</h1>
-                                <h2 class="subtitle hero-subtitle">Sfeervolle, natuurlijke tuinconcepten</h2>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    Nullam molestie, augue eu feugiat vestibulum, diam erat cursus quam,
-                                    at commodo risus ligula eu augue. Donec gravida tristique urna, ac dapibus sapien.
-                                    Etiam placerat euismod velit ac pharetra ...
-                                </p>
-                                <div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
-                                    <div class="wp-block-button focus">
-                                        <a class="wp-block-button__link wp-element-button">test 1</a>
+            <?php
+            if (is_front_page()) {
+                ?>
+                <section class="hero">
+                    <div class="container-fluid container-lg">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="swiper homeSwiper">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">Slide 1</div>
+                                        <div class="swiper-slide">Slide 2</div>
+                                        <div class="swiper-slide">Slide 3</div>
+                                        <div class="swiper-slide">Slide 4</div>
+                                        <div class="swiper-slide">Slide 5</div>
+                                        <div class="swiper-slide">Slide 6</div>
+                                        <div class="swiper-slide">Slide 7</div>
+                                        <div class="swiper-slide">Slide 8</div>
+                                        <div class="swiper-slide">Slide 9</div>
                                     </div>
-                                    <div class="wp-block-button">
-                                        <a class="wp-block-button__link wp-element-button">test 2</a>
+                                    <div class="swiper-pagination"></div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="inner-hero">
+                                    <h1 class="title hero-title">Crea-Oase</h1>
+                                    <h2 class="subtitle hero-subtitle">Sfeervolle, natuurlijke tuinconcepten</h2>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                        Nullam molestie, augue eu feugiat vestibulum, diam erat cursus quam,
+                                        at commodo risus ligula eu augue. Donec gravida tristique urna, ac dapibus sapien.
+                                        Etiam placerat euismod velit ac pharetra ...
+                                    </p>
+                                    <div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
+                                        <div class="wp-block-button focus">
+                                            <a class="wp-block-button__link wp-element-button">test 1</a>
+                                        </div>
+                                        <div class="wp-block-button">
+                                            <a class="wp-block-button__link wp-element-button">test 2</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
-            
-        
-        
-        
+                </section>
+                <?php 
+            }
