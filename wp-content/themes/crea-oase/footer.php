@@ -19,6 +19,15 @@
         <footer>
             
         </footer>
+
+        <div id="backgroundAccents" class="bg-accent-images">
+            <ul>
+                <li><img src="<?php echo get_template_directory_uri().'/assets/icons/leafs.svg'; ?>" alt="<?php echo __('Leaf', 'txtd-crea-oase'); ?>" /></li>
+                <li><img src="<?php echo get_template_directory_uri().'/assets/icons/butterfly.svg'; ?>" alt="<?php echo __('Butterfly', 'txtd-crea-oase'); ?>" /></li>
+                <li><img src="<?php echo get_template_directory_uri().'/assets/icons/tree.svg'; ?>" alt="<?php echo __('Tree', 'txtd-crea-oase'); ?>" /></li>
+                <li><img src="<?php echo get_template_directory_uri().'/assets/icons/grass.svg'; ?>" alt="<?php echo __('Grass', 'txtd-crea-oase'); ?>" /></li>
+            </ul>
+        </div>
     </div>
     <!-- WP Footer -->
     <?php wp_footer(); ?>

@@ -80,7 +80,7 @@
 
     <div id="main-wrapper" class="main-wrapper">
         <header class="header">
-            <div class="container-fluid container-lg">
+            <div class="container-fluid container-xxl">
                 <div class="d-flex align-items-center justify-content-between justify-content-lg-start">
                     <!-- Logo -->
                     <div class="header-logo">
@@ -115,48 +115,81 @@
         <main class="main-content" id="mainContent">
             <?php
             if (is_front_page()) {
-                ?>
-                <section class="hero">
-                    <div class="container-fluid container-lg">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="swiper homeSwiper">
-                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide">Slide 1</div>
-                                        <div class="swiper-slide">Slide 2</div>
-                                        <div class="swiper-slide">Slide 3</div>
-                                        <div class="swiper-slide">Slide 4</div>
-                                        <div class="swiper-slide">Slide 5</div>
-                                        <div class="swiper-slide">Slide 6</div>
-                                        <div class="swiper-slide">Slide 7</div>
-                                        <div class="swiper-slide">Slide 8</div>
-                                        <div class="swiper-slide">Slide 9</div>
+
+                // Get the slider images and content
+                $slider_hero = get_field('startpage_slider', get_the_ID());
+
+                if ($slider_hero) {    
+
+                    $slider_hero_imgs = $slider_hero['hero_gallery'];
+                    $slider_hero_content = $slider_hero['hero_content'];
+                    $slider_hero_cta_one = $slider_hero['hero_cta_one'];
+                    $slider_hero_cta_two = $slider_hero['hero_cta_two'];
+                    ?>
+                    <section class="hero">
+                        <div class="container-fluid container-xxl">
+                            <div class="row">
+                                <div class="col-md-6 col-lg-7">
+                                    <div class="swiper homeSwiper">
+                                        <div class="swiper-wrapper">
+                                            <?php
+                                            if ($slider_hero_imgs) {
+                                                // Drop everything in the gallery
+                                                foreach ($slider_hero_imgs as $slider_hero_img) {
+                                                    ?>
+                                                    <div class="swiper-slide">
+                                                        <img src="<?php echo $slider_hero_img['url']; ?>" alt="<?php echo $slider_hero_img['alt']; ?>" />
+                                                    </div>
+                                                    <?php
+                                                }
+                                            } else {
+                                                ?>
+                                                <div class="swiper-slide">
+                                                    <img src="<?php echo get_template_directory_uri().'/screenshot.png'; ?>" alt="<?php echo __('Placeholder Crea-Oase', 'txtd-crea-oase'); ?>" />
+                                                </div>
+                                                <?php
+                                            }
+                                            ?>
+                                        </div>
+                                        <div class="swiper-pagination"></div>
                                     </div>
-                                    <div class="swiper-pagination"></div>
                                 </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="inner-hero">
-                                    <h1 class="title hero-title">Crea-Oase</h1>
-                                    <h2 class="subtitle hero-subtitle">Sfeervolle, natuurlijke tuinconcepten</h2>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                        Nullam molestie, augue eu feugiat vestibulum, diam erat cursus quam,
-                                        at commodo risus ligula eu augue. Donec gravida tristique urna, ac dapibus sapien.
-                                        Etiam placerat euismod velit ac pharetra ...
-                                    </p>
-                                    <div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
-                                        <div class="wp-block-button focus">
-                                            <a class="wp-block-button__link wp-element-button">test 1</a>
-                                        </div>
-                                        <div class="wp-block-button">
-                                            <a class="wp-block-button__link wp-element-button">test 2</a>
-                                        </div>
+                                <div class="col-md-6 col-lg-5">
+                                    <div class="inner-hero">
+                                        <h1 class="title hero-title"><?php echo get_bloginfo('name', 'raw'); ?></h1>
+                                        <h2 class="subtitle hero-subtitle"><?php echo get_the_archive_title(); ?></h2>
+                                        <?php
+                                        echo $slider_hero_content;
+
+                                        if ($slider_hero_cta_one || $slider_hero_cta_two) {
+                                            ?>
+                                            <div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
+                                                <?php
+                                                if ($slider_hero_cta_one) {
+                                                    ?>
+                                                    <div class="wp-block-button">
+                                                        <?php echo '<a href="'.$slider_hero_cta_one['url'].'" class="wp-block-button__link wp-element-button" target="'.$slider_hero_cta_one['target'].'">'.$slider_hero_cta_one['title'].'</a>'; ?>
+                                                    </div>
+                                                    <?php
+                                                }
+
+                                                if ($slider_hero_cta_two) {
+                                                    ?>
+                                                    <div class="wp-block-button">
+                                                        <?php echo '<a href="'.$slider_hero_cta_two['url'].'" class="wp-block-button__link wp-element-button" target="'.$slider_hero_cta_two['target'].'">'.$slider_hero_cta_two['title'].'</a>'; ?>
+                                                    </div>
+                                                    <?php
+                                                }
+                                                ?>
+                                            </div>
+                                            <?php
+                                        }
+                                        ?>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
                 <?php 
+                }
             }

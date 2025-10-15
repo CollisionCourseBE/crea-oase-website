@@ -12,7 +12,17 @@ get_header();
     // Start the page WordPress loop and check for content
     if ( have_posts() ) : while ( have_posts() ) : the_post();
 
-        the_content();
+        ?>
+        <section class="main-body">
+            <div class="container-fluid container-xxl">
+                <div class="row">
+                    <div class="col">
+                        <?php the_content(); ?>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <?php
 
     endwhile; else :
 

@@ -9,6 +9,15 @@
 // Buttons
 .wp-block-buttons {
     margin: 15px 0;
+    gap: 15px;
+
+    @media screen and (min-width: 992px) {
+        gap: 30px;
+    }
+
+    @media screen and (min-width: 1400px) {
+        gap: 60px;
+    }
 }
 
 .wp-block-button {
@@ -26,9 +35,8 @@
         box-shadow: 0 6px 12px rgba(0, 0, 0, .2);
 
         &:hover {
-            background-color: vars.$color-primary;
+            background-color: vars.$border-normal;
             color: vars.$color-white;
-            border-color: vars.$color-primary;
         }
 
         @media screen and (min-width: 768px) {
@@ -42,9 +50,8 @@
         border-color: vars.$color-primary;
 
         &:hover {
-            color: vars.$color-text-dark;
-            background-color: vars.$color-white-accent-light;
-            border-color: vars.$border-normal
+            background-color: vars.$border-normal;
+            border-color: vars.$border-normal;
         }
     }
 }
